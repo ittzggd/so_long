@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/12 10:46:35 by hejang            #+#    #+#             */
+/*   Updated: 2022/05/12 10:46:41 by hejang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<string.h>
-#include<fcntl.h>
-#include<mlx.h>
-#include"./libft/libft.h"
+# include<stdio.h>
+# include<stdlib.h>
+# include<unistd.h>
+# include<string.h>
+# include<fcntl.h>
+# include<mlx.h>
+# include"./libft/libft.h"
 
 typedef	struct s_img
 {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/12 10:46:18 by hejang            #+#    #+#             */
+/*   Updated: 2022/05/12 10:46:20 by hejang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"so_long.h"
 
 int		make_map(char *argv, t_data *d_struct)
@@ -55,10 +67,13 @@ void	read_map_file(char *str, t_data *d)
 	{
 		close(fd);
 		free(s);
+		free(buf);
 		ft_error();
 	}
 	d->map = ft_split(s, 10);
+	close(fd);
 	free(s);
+	free(buf);
 }
 
 int	check_elements(char *s, t_data *data)
