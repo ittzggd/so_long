@@ -6,7 +6,7 @@
 /*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:47:15 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/12 10:47:18 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/13 19:03:41 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	get_starting_position(t_data *data)
 
 	tmp = data->map;
 	i = 0;
-	while(tmp[i])
+	while (tmp[i])
 	{
 		j = 0;
-		while(tmp[i][j])
+		while (tmp[i][j])
 		{
-			if(tmp[i][j] == 'P')
+			if (tmp[i][j] == 'P')
 			{
 				data->pp_y = i;
 				data->pp_x = j;
@@ -46,15 +46,15 @@ int	check_available(t_data *data, char key)
 	tmp = data->map;
 	x = data->pp_x;
 	y = data->pp_y;
-	if(key == 'A')
+	if (key == 'A')
 		x = data->pp_x - 1;
-	if(key == 'W')
+	if (key == 'W')
 		y = data->pp_y - 1;
-	if(key == 'D')
+	if (key == 'D')
 		x = data->pp_x + 1;
-	if(key == 'S')
+	if (key == 'S')
 		y = data->pp_y + 1;
-	if(tmp[y][x] == 'C' || tmp[y][x] == '0' || tmp[y][x] == 'E')
+	if (tmp[y][x] == 'C' || tmp[y][x] == '0' || tmp[y][x] == 'E')
 		return (TRUE);
 	return (FALSE);
 }

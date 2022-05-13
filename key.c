@@ -6,7 +6,7 @@
 /*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:47:36 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/12 10:47:53 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/13 16:31:40 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,31 @@
 
 int	key_pressed(int keycode, t_data *data)
 {
-	if(keycode == 0)
-		move_A(data);
-	else if(keycode == 1)
-		move_S(data);
-	else if(keycode == 2)
-		move_D(data);
-	else if(keycode == 13)
-		move_W(data);
-	if(keycode == 53)
+	if (keycode == 0)
+		move_a(data);
+	else if (keycode == 1)
+		move_s(data);
+	else if (keycode == 2)
+		move_d(data);
+	else if (keycode == 13)
+		move_w(data);
+	if (keycode == 53)
 		exit(0);
 	return (1);
 }
 
-void	move_A(t_data *data)
+void	move_a(t_data *data)
 {
-	char **tmp;
+	char	**tmp;
 
 	tmp = data->map;
-	if(!check_available(data, 'A'))
+	if (!check_available(data, 'A'))
 		return ;
-	if(tmp[data->pp_y][data->pp_x - 1] == 'C')
+	if (tmp[data->pp_y][data->pp_x - 1] == 'C')
 		data->col_cnt--;
-	else if(tmp[data->pp_y][data->pp_x - 1] == 'E')
+	else if (tmp[data->pp_y][data->pp_x - 1] == 'E')
 	{
-		if(!is_success(data))
+		if (!is_success(data))
 			return ;
 	}
 	data->pp_x--;
@@ -49,18 +49,18 @@ void	move_A(t_data *data)
 	printf("%d\n", data->move_cnt);
 }
 
-void	move_W(t_data *data)
+void	move_w(t_data *data)
 {
 	char	**tmp;
 
 	tmp = data->map;
-	if(!check_available(data, 'W'))
+	if (!check_available(data, 'W'))
 		return ;
-	if(tmp[data->pp_y - 1][data->pp_x] == 'C')
+	if (tmp[data->pp_y - 1][data->pp_x] == 'C')
 		data->col_cnt--;
-	else if(tmp[data->pp_y - 1][data->pp_x] == 'E')
+	else if (tmp[data->pp_y - 1][data->pp_x] == 'E')
 	{
-		if(!is_success(data))
+		if (!is_success(data))
 			return ;
 	}
 	data->pp_y--;
@@ -71,18 +71,18 @@ void	move_W(t_data *data)
 	printf("%d\n", data->move_cnt);
 }
 
-void	move_S(t_data *data)
+void	move_s(t_data *data)
 {
 	char	**tmp;
 
 	tmp = data->map;
-	if(!check_available(data, 'S'))
+	if (!check_available(data, 'S'))
 		return ;
-	if(tmp[data->pp_y + 1][data->pp_x] == 'C')
+	if (tmp[data->pp_y + 1][data->pp_x] == 'C')
 		data->col_cnt--;
-	else if(tmp[data->pp_y + 1][data->pp_x] == 'E')
+	else if (tmp[data->pp_y + 1][data->pp_x] == 'E')
 	{
-		if(!is_success(data))
+		if (!is_success(data))
 			return ;
 	}
 	data->pp_y++;
@@ -93,18 +93,18 @@ void	move_S(t_data *data)
 	printf("%d\n", data->move_cnt);
 }
 
-void	move_D(t_data *data)
+void	move_d(t_data *data)
 {
 	char	**tmp;
 
 	tmp = data->map;
-	if(!check_available(data, 'D'))
+	if (!check_available(data, 'D'))
 		return ;
-	if(tmp[data->pp_y][data->pp_x + 1] == 'C')
+	if (tmp[data->pp_y][data->pp_x + 1] == 'C')
 		data->col_cnt--;
-	else if(tmp[data->pp_y][data->pp_x + 1] == 'E')
+	else if (tmp[data->pp_y][data->pp_x + 1] == 'E')
 	{
-		if(!is_success(data))
+		if (!is_success(data))
 			return ;
 	}
 	data->pp_x++;

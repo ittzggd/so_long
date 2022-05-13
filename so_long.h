@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:46:35 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/12 10:46:41 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/13 19:22:01 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include<stdio.h>
+# define TRUE 1
+# define FALSE 0
+
 # include<stdlib.h>
 # include<unistd.h>
 # include<string.h>
@@ -21,7 +23,7 @@
 # include<mlx.h>
 # include"./libft/libft.h"
 
-typedef	struct s_img
+typedef struct s_img
 {
 	void	*item;
 	void	*player;
@@ -38,7 +40,7 @@ typedef struct s_data
 	int		sp_cnt;
 	int		col_cnt;
 	int		exit_cnt;
-	void 	*mlx;
+	void	*mlx;
 	void	*mlx_win;
 	int		move_cnt;
 	int		pp_x;
@@ -58,17 +60,14 @@ void		initialize_image(t_data *data);
 int			put_background(t_data *data);
 void		load(t_data *data);
 int			key_pressed(int keycode, t_data *data);
-void		move_A(t_data *data);
-void		move_W(t_data *data);
-void		move_S(t_data *data);
-void		move_D(t_data *data);
+void		move_a(t_data *data);
+void		move_w(t_data *data);
+void		move_s(t_data *data);
+void		move_d(t_data *data);
 void		get_starting_position(t_data *data);
 int			check_available(t_data *data, char key);
 int			is_success(t_data *data);
 void		set_struct(t_data *data);
-void		ft_error();
+void		ft_error(int errno);
 
-#define TRUE 1
-#define FALSE 0
-
-# endif
+#endif

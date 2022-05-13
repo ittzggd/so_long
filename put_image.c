@@ -6,7 +6,7 @@
 /*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:47:08 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/12 10:47:10 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/13 19:07:45 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,20 @@ int	put_image(t_data *data)
 	put_background(data);
 	y = 0;
 	tmp = data->map;
-	while(y < data->height)
+	while (y < data->height)
 	{
 		x = 0;
-		while(x < data->width)
+		while (x < data->width)
 		{
-			if(tmp[y][x] == '1')
+			if (tmp[y][x] == '1')
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.wall, x * 64 , y * 64 );
-			else if(tmp[y][x] == 'P')
+			else if (tmp[y][x] == 'P')
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.player, x * 64 , y * 64);
-			else if(tmp[y][x] == 'C')
+			else if (tmp[y][x] == 'C')
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.item, x  * 64, y * 64);
-			else if(tmp[y][x] == 'E')
+			else if (tmp[y][x] == 'E')
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.exit, x * 64, y  * 64);
-			else if(tmp[y][x] == '0')
+			else if (tmp[y][x] == '0')
 				mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.background, x * 64, y * 64);
 			x++;
 		}
@@ -51,10 +51,10 @@ int	put_background(t_data *data)
 	int		j;
 
 	i = 0;
-	while(i < data->height)
+	while (i < data->height)
 	{
 		j = 0;
-		while( j < data->width)
+		while ( j < data->width)
 		{
 			mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.background, j * 64, i * 64);
 			j++;
@@ -69,10 +69,14 @@ void	initialize_image(t_data *data)
 	int	width;
 	int	height;
 
-
-	data->img.background = mlx_xpm_file_to_image(data->mlx, "../image/AnyConv.com__bluue.xpm", &width, &height);
-	data->img.player = mlx_xpm_file_to_image(data->mlx, "../image/AnyConv.com__real_mario.xpm", &width, &height);
-	data->img.exit = mlx_xpm_file_to_image(data->mlx, "../image/AnyConv.com__exit.xpm", &width, &height);
-	data->img.wall = mlx_xpm_file_to_image(data->mlx, "../image/AnyConv.com__wall.xpm", &width, &height);
-	data->img.item = mlx_xpm_file_to_image(data->mlx, "../image/AnyConv.com__coin.xpm", &width, &height);
+	data->img.background = mlx_xpm_file_to_image(data->mlx,
+			"../image/AnyConv.com__bluue.xpm", &width, &height);
+	data->img.player = mlx_xpm_file_to_image(data->mlx,
+			"../image/AnyConv.com__real_mario.xpm", &width, &height);
+	data->img.exit = mlx_xpm_file_to_image(data->mlx,
+			"../image/AnyConv.com__exit.xpm", &width, &height);
+	data->img.wall = mlx_xpm_file_to_image(data->mlx,
+			"../image/AnyConv.com__wall.xpm", &width, &height);
+	data->img.item = mlx_xpm_file_to_image(data->mlx,
+			"../image/AnyConv.com__coin.xpm", &width, &height);
 }
