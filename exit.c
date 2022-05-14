@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:57:58 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/13 18:58:12 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/14 21:14:15 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 int	is_success(t_data *data)
 {
 	char	*tmp;
-	char	*str;
 	int		mv_cnt;
 
 	mv_cnt = data->move_cnt;
-	str = "It's a rich man's world!\n";
 	if (data->col_cnt == 0)
 	{
 		tmp = ft_itoa(mv_cnt);

@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:46:18 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/14 20:56:45 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/14 21:24:59 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,8 @@ int	check_elements(char *s, t_data *data)
 			return (FALSE);
 		s++;
 	}
-	if (data->sp_cnt == 0 || data->sp_cnt > 1 || data->exit_cnt == 0)
+	if (data->sp_cnt == 0 || data->sp_cnt > 1 || data->exit_cnt == 0
+		data->col_cnt == 0)
 		return (FALSE);
 	return (TRUE);
 }
