@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:47:08 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/13 19:07:45 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/14 14:17:09 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	put_image(t_data *data)
 	int		x;
 	int		y;
 	char	**tmp;
-	
-	if(!data)
+
+	if (!data)
 		return (0);
 	put_background(data);
 	y = 0;
@@ -28,21 +28,28 @@ int	put_image(t_data *data)
 		x = 0;
 		while (x < data->width)
 		{
-			if (tmp[y][x] == '1')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.wall, x * 64 , y * 64 );
-			else if (tmp[y][x] == 'P')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.player, x * 64 , y * 64);
-			else if (tmp[y][x] == 'C')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.item, x  * 64, y * 64);
-			else if (tmp[y][x] == 'E')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.exit, x * 64, y  * 64);
-			else if (tmp[y][x] == '0')
-				mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.background, x * 64, y * 64);
+			put_iamge_to_window(data, tmp[y][x], x * 64, y * 64)
 			x++;
 		}
 		y++;
 	}
 	return (1);
+}
+
+void	put_image_to_window(t_data *data, char c, int x, int y)
+{
+	if (c == '1')
+		mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.wall, x, y);
+	else if (c == 'P')
+		mlx_put_image_to_window(data->mlx,
+			data->mlx_win, data->img.player, x, y);
+	else if (c == 'C')
+		mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.item, x, y);
+	else if (c == 'E')
+		mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.exit, x, y);
+	else if (c == '0')
+		mlx_put_image_to_window(data->mlx,
+			data->mlx_win, data->img.background, x, y);
 }
 
 int	put_background(t_data *data)
@@ -54,9 +61,10 @@ int	put_background(t_data *data)
 	while (i < data->height)
 	{
 		j = 0;
-		while ( j < data->width)
+		while (j < data->width)
 		{
-			mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.background, j * 64, i * 64);
+			mlx_put_image_to_window(data->mlx,
+				data->mlx_win, data->img.background, j * 64, i * 64);
 			j++;
 		}
 		i++;

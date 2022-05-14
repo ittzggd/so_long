@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:46:18 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/13 19:03:13 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/14 14:03:40 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,17 @@ void	read_map_file(char *str, t_data *d)
 	int		fd;
 	int		read_len;
 
-	fd = open(str, O_RDONLY);//아니면 fd 를 0으로 놓고 바로 받기?? 
+	fd = open(str, O_RDONLY);
 	if (fd < 0)
 		ft_error(1);
 	s = strdup("");
 	read_len = 1;
-	buf = malloc(sizeof(char) * 2); //할당 안 해주고 size 아니까 배열로 해도 될 듯;
+	buf = malloc(sizeof(char) * 2);
 	while (read_len > 0)
 	{
 		read_len = read(fd, buf, 1);
 		buf[1] = '\0';
-		ptr = ft_strjoin(s, buf);//strjoin을 
+		ptr = ft_strjoin(s, buf);
 		free(s);
 		s = ptr;
 	}
@@ -85,7 +85,8 @@ int	check_elements(char *s, t_data *data)
 	data->exit_cnt = 0;
 	while (*s != '\0')
 	{
-		if (*s == '0' || *s == '1' || *s == 'C' || *s == 'E' || *s == 'P' || *s == '\n')
+		if (*s == '0' || *s == '1' || *s == 'C'
+			|| *s == 'E' || *s == 'P' || *s == '\n')
 		{
 			if (*s == 'P')
 				data->sp_cnt++;

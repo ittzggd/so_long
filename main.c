@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:58:19 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/13 18:58:52 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/14 13:38:38 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char *argv[])
 {
 	t_data	*data;
 
-	data = malloc(sizeof(t_data)); //이 부분은 initialize 함수로 따로 빼고 내부 멤버까지 초기화 해주기
+	data = malloc(sizeof(t_data));
 	if (argc > 1)
 	{
 		set_struct(data);

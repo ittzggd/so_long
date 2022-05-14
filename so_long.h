@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:46:35 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/13 19:22:01 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/14 14:19:09 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int			is_square(t_data *data);
 int			check_wall(t_data *data);
 void		window(t_data *data);
 int			put_image(t_data *data);
+void		put_image_to_window(t_data *data, char c, int x, int y)
 void		initialize_image(t_data *data);
 int			put_background(t_data *data);
 void		load(t_data *data);
