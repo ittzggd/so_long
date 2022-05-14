@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:46:35 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/14 14:19:09 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/14 18:57:52 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@
 # include<unistd.h>
 # include<string.h>
 # include<fcntl.h>
-# include<mlx.h>
+# include"./mlx/mlx.h"
+# include<stdio.h>
 # include"./libft/libft.h"
+
 
 typedef struct s_img
 {
@@ -50,13 +52,14 @@ typedef struct s_data
 
 int			make_map(char *argv, t_data *d_struct);
 int			check_file(char *file);
-void		read_map_file(char *str, t_data *d);
+void		read_map_file(char *file, t_data *d);
+char		*get_next_c(int fd);
 int			check_elements(char *s, t_data *data);
 int			is_square(t_data *data);
 int			check_wall(t_data *data);
 void		window(t_data *data);
 int			put_image(t_data *data);
-void		put_image_to_window(t_data *data, char c, int x, int y)
+void		put_image_to_window(t_data *data, char c, int x, int y);
 void		initialize_image(t_data *data);
 int			put_background(t_data *data);
 void		load(t_data *data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:40:41 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/13 16:41:03 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/14 21:05:31 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_error(int errno)
 	if (errno == 1)
 		write(1, "can't read map file\n", 30);
 	if (errno == 2)
-		write(1, "check map format\n", 20);
+		write(1, "check map format\n", 17);
 	exit(1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:46:49 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/13 16:26:19 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/14 21:02:53 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	is_square(t_data	*map_data)
 {
 	int		i;
-	int		len;
-	int		height;
-	int		width;
+	size_t	len;
 	char	**tmp;
 
 	i = 1;
@@ -25,7 +23,7 @@ int	is_square(t_data	*map_data)
 	len = strlen(tmp[0]);
 	while (tmp[i + 1])
 	{
-		if (len != strlen(tmp[i]))
+		if (len != ft_strlen(tmp[i]))
 			return (FALSE);
 		i++;
 	}
@@ -46,12 +44,14 @@ int	check_wall(t_data *map_data)
 	{
 		j = 0;
 		if (i == 0 || i == map_data->height - 1)
+		{
 			while (tmp[i][j])
 			{
 				if (tmp[i][j] != '1')
 					return (FALSE);
 				j++;
 			}
+		}
 		if (tmp[i][0] != '1' || tmp[i][map_data->width - 1] != '1')
 			return (FALSE);
 		i++;

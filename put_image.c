@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:47:08 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/14 14:17:09 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/14 18:51:24 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	put_image(t_data *data)
 		x = 0;
 		while (x < data->width)
 		{
-			put_iamge_to_window(data, tmp[y][x], x * 64, y * 64)
+			put_image_to_window(data, tmp[y][x], x * 64, y * 64);
 			x++;
 		}
 		y++;

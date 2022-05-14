@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:46:18 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/14 14:03:40 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/14 20:56:45 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,42 @@ int	check_file(char *file)
 	return (TRUE);
 }
 
-void	read_map_file(char *str, t_data *d)
+void	read_map_file(char *file, t_data *d)
 {
-	char	*s;
-	char	*buf;
-	char	*ptr;
 	int		fd;
-	int		read_len;
+	char	*s;
 
-	fd = open(str, O_RDONLY);
+	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		ft_error(1);
-	s = strdup("");
+	s = get_next_c(fd);
+	if (!s)
+	{
+		close(fd);
+		ft_error(1);
+	}
+	close(fd);
+	if (!check_elements(s, d))
+	{
+		free(s);
+		ft_error(2);
+	}
+	d->map = ft_split(s, 10);
+	free(s);
+}
+
+char	*get_next_c(int fd)
+{
+	char	*buf;
+	char	*s;
+	char	*ptr;
+	int		read_len;
+
+	s = ft_strdup("");
 	read_len = 1;
 	buf = malloc(sizeof(char) * 2);
+	if (!buf)
+		return (NULL);
 	while (read_len > 0)
 	{
 		read_len = read(fd, buf, 1);
@@ -63,17 +85,8 @@ void	read_map_file(char *str, t_data *d)
 		free(s);
 		s = ptr;
 	}
-	if (!check_elements(s, d))
-	{
-		close(fd);
-		free(s);
-		free(buf);
-		ft_error(2);
-	}
-	d->map = ft_split(s, 10);
-	close(fd);
-	free(s);
 	free(buf);
+	return (s);
 }
 
 int	check_elements(char *s, t_data *data)
