@@ -6,7 +6,7 @@
 #    By: hejang <hejang@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/14 20:15:46 by hejang            #+#    #+#              #
-#    Updated: 2022/05/14 20:52:35 by hejang           ###   ########.fr        #
+#    Updated: 2022/05/16 13:07:41 by hejang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ SRCS = main.c\
 
 OBJS = $(SRCS:.c=.o)
 
+LIB_DIR = ./libft
+MLX_DIR = ./mlx
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -38,11 +41,13 @@ $(NAME) : $(OBJS)
 		$(CC) $(CFLAGS) -Llibft -lft -Lmlx -lmlx -framework OpenGl -framework AppKit -Imlx $(OBJS) -o $(NAME)
 
 clean :
-		$(MAKE) -C libft clean
+		$(MAKE) -C ./libft clean
+		$(MAKE) -C ./mlx clean
 		$(RM) $(RMFLAG) $(OBJS)
 
 fclean : clean
-		$(MAKE) -C libft fclean
+		$(MAKE) -C ./libft fclean
+		$(MAKE) -C ./mlx fclean
 		$(RM) $(RMFLAG) $(NAME)
 
 re : fclean all
