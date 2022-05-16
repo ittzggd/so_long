@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:57:58 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/14 21:14:15 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/16 12:51:20 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	is_success(t_data *data)
 		write(1, tmp, ft_strlen(tmp));
 		write(1, "\n", 1);
 		write(1, "It's a rich man's world!\n", 25);
+		mlx_destroy_window(data->mlx, data->mlx_win);
 		free(tmp);
 		exit(0);
 	}
