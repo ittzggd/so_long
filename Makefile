@@ -6,7 +6,7 @@
 #    By: hejang <hejang@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/14 20:15:46 by hejang            #+#    #+#              #
-#    Updated: 2022/05/16 13:07:41 by hejang           ###   ########.fr        #
+#    Updated: 2022/05/18 12:00:46 by hejang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,6 @@ SRCS = main.c\
 		put_image.c\
 
 OBJS = $(SRCS:.c=.o)
-
-LIB_DIR = ./libft
-MLX_DIR = ./mlx
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -47,7 +44,6 @@ clean :
 
 fclean : clean
 		$(MAKE) -C ./libft fclean
-		$(MAKE) -C ./mlx fclean
 		$(RM) $(RMFLAG) $(NAME)
 
 re : fclean all

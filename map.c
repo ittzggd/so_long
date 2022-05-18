@@ -6,28 +6,24 @@
 /*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:46:18 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/16 13:01:17 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/18 11:55:01 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"so_long.h"
 
-int	make_map(char *argv, t_data *d_struct)
+void	make_map(char *argv, t_data *d_struct)
 {
-	if (!check_file(argv))
-		return (FALSE);
+	check_file(argv);
 	read_map_file(argv, d_struct);
-	if (!is_square(d_struct))
-		return (FALSE);
-	if (!check_wall(d_struct))
-		return (FALSE);
-	return (TRUE);
+	is_square(d_struct);
+	check_wall(d_struct);
 }
 
-int	check_file(char *file)
+void	check_file(char *file)
 {
 	if (!file)
-		return (FALSE);
+		ft_error("no file");
 	while (*file != '\0')
 	{
 		if (*file == '.')
@@ -35,10 +31,9 @@ int	check_file(char *file)
 		file++;
 	}
 	if (*file == '\0')
-		return (FALSE);
-	if (!ft_strncmp(file, ".ber", 4))
-		return (FALSE);
-	return (TRUE);
+		ft_error("file extension");
+	if (!ft_strncmp(file, ".ber", 5))
+		ft_error("file extension");
 }
 
 void	read_map_file(char *file, t_data *d)
@@ -48,18 +43,18 @@ void	read_map_file(char *file, t_data *d)
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		ft_error(1);
+		ft_error("open failed");
 	s = get_next_c(fd);
 	if (!s)
 	{
 		close(fd);
-		ft_error(1);
+		ft_error("file is empty");
 	}
 	close(fd);
 	if (!check_elements(s, d))
 	{
 		free(s);
-		ft_error(2);
+		ft_error("The map must be composed of only 5 possible characters");
 	}
 	d->map = ft_split(s, 10);
 	free(s);

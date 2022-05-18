@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hejang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 10:47:36 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/13 16:31:40 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/18 11:53:41 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int	key_pressed(int keycode, t_data *data)
 	else if (keycode == 13)
 		move_w(data);
 	if (keycode == 53)
+	{
+		mlx_destroy_window(data->mlx, data->mlx_win);
 		exit(0);
+	}
 	return (1);
 }
 

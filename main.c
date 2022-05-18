@@ -6,7 +6,7 @@
 /*   By: hejang <hejang@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:58:19 by hejang            #+#    #+#             */
-/*   Updated: 2022/05/14 20:55:16 by hejang           ###   ########.fr       */
+/*   Updated: 2022/05/18 11:53:07 by hejang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int	main(int argc, char *argv[])
 	if (argc > 1)
 	{
 		set_struct(data);
-		if (!make_map(argv[1], data))
-			ft_error(1);
+		make_map(argv[1], data);
 		window(data);
 	}
 }
